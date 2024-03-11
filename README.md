@@ -1,2 +1,4 @@
-# behavior-random-forest
-Conceptual basis of creating enemy learning behavior using random forest models to make an effective counter choice.
+# Powering Opponent A.I. to Effectively Counter with Random Forest Voting
+
+A simple program that will use all previous inputs by you to learn and try to make the right choice upon having to choose between `attacking` or `defending`
+depending on how you've responded in the past.
