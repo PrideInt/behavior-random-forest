@@ -13,10 +13,40 @@ First, I want to see what classification method is optimal for what I want to do
 
 ### Classification Models - Gradient Boosted Regression Trees
 
-I think this model works best (as of now) because not only do I gain scalability, but I also have a pretty nice
+I think this model works best (as of now) because not only do I have scalability, but I also have a pretty nice
 voting method to improve the regression tree learner. 
 
-(*Math to be discussed.*)
+### Math
+
+So for my algorithm, I'll be using Friedman's stochastic gradient boosting algorithm, which can be portrayed by:
+
+1. Computing an `F₀` constant so I can iteratively create my trees later. This can be done through the following:
+
+![constant](https://github.com/PrideInt/decision-to-grow/assets/20098992/5bd4471e-f2e9-479b-92af-88ea788fcd09)
+
+Our predicted value is defined by `p` and our observed values are defined by `yᵢ`.
+
+Our loss function is defined by `L(yᵢ,p)`. I'll be using the MSE (mean squared error) loss function, which here, can be defined as `1/2(yᵢ, p)^2`.
+
+Here, we'll be finding `p` that minimizes the sum of the loss function, which is really just the average of `∀(i) ϵ y`.
+
+2. Now in the for loop iteration step from `n` to `N`, where `n = 1` and `100 < N < 1000`, I'll be computing my pseudo-residuals by solving a differentiable gradient with respect to our loss function.
+
+I'll begin by computing my pseudo-residuals `r`:
+
+![residual](https://github.com/PrideInt/decision-to-grow/assets/20098992/b73fc574-5d52-4940-b9ea-329f08d30572)
+
+Then create and fit my trees `R`.
+
+I'll then compute my predicted values `p`:
+
+![predicted](https://github.com/PrideInt/decision-to-grow/assets/20098992/650cc812-3290-401e-a1ea-9322060507c1)
+
+And finally update my model to compensate for any errors as well as introducing learning rate `l` to better accurately predict a value:
+
+![update](https://github.com/PrideInt/decision-to-grow/assets/20098992/e52ddff3-5ee0-4cd6-81b8-7821bdd0bc8c)
+
+3. My predicted values would range between `attacking` = `0 < a < 1`, `defending` = `1 < d < 2` and `healing` = `2 < h < 3`. I'll classify the users based on these values alone whether or not the user falls between any of the ranges respectively.
 
 ### Red-Lighted
 
