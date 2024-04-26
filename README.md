@@ -22,7 +22,7 @@ So for my algorithm, I'll be using Friedman's stochastic gradient boosting algor
 
 1. Computing an `F₀` constant so I can iteratively create my trees later. This can be done through the following:
 
-![constant](https://github.com/PrideInt/decision-to-grow/assets/20098992/5bd4471e-f2e9-479b-92af-88ea788fcd09)
+![constant_white](https://github.com/PrideInt/decision-to-grow/assets/20098992/5f3ffc5c-692c-4b97-b2a4-da074257d96a)
 
 Our predicted value is defined by `p` and our observed values are defined by `yᵢ`.
 
@@ -34,17 +34,17 @@ Here, we'll be finding `p` that minimizes the sum of the loss function, which is
 
 I'll begin by computing my pseudo-residuals `r`:
 
-![residual](https://github.com/PrideInt/decision-to-grow/assets/20098992/b73fc574-5d52-4940-b9ea-329f08d30572)
+![residual_white](https://github.com/PrideInt/decision-to-grow/assets/20098992/cec50e3b-8ef2-44c7-91d9-688d598bba14)
 
 Then create and fit my trees `R`.
 
 I'll then compute my predicted values `p`:
 
-![predicted](https://github.com/PrideInt/decision-to-grow/assets/20098992/650cc812-3290-401e-a1ea-9322060507c1)
+![predicted_white](https://github.com/PrideInt/decision-to-grow/assets/20098992/f7052197-d094-4e5a-a051-c2766a953b53)
 
 And finally update my model to compensate for any errors as well as introducing learning rate `l` to better accurately predict a value:
 
-![update](https://github.com/PrideInt/decision-to-grow/assets/20098992/e52ddff3-5ee0-4cd6-81b8-7821bdd0bc8c)
+![update_white](https://github.com/PrideInt/decision-to-grow/assets/20098992/825d3a54-e781-45e8-b755-09fffa4ab479)
 
 3. My predicted values would range between `attacking` = `0 < a < 1`, `defending` = `1 < d < 2` and `healing` = `2 < h < 3`. I'll classify the users based on these values alone whether or not the user falls between any of the ranges respectively.
 
