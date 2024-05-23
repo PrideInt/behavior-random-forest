@@ -46,7 +46,9 @@ And finally update my model to compensate for any errors as well as introducing 
 
 ![update_white](https://github.com/PrideInt/decision-to-grow/assets/20098992/825d3a54-e781-45e8-b755-09fffa4ab479)
 
-3. My predicted values would range between `attacking` = `0 < a < 1`, `defending` = `1 < d < 2` and `healing` = `2 < h < 3`. I'll classify the users based on these values alone whether or not the user falls between any of the ranges respectively.
+3. My predicted values are then used to classify users in the function `d` defined as, where parameter `c` takes `Fⱼ(x)` as the input:
+
+![decision](https://github.com/PrideInt/decision-to-grow/assets/20098992/d851b61d-5a3c-4e22-ba2d-6efa67407148)
 
 ### Red-Lighted
 
